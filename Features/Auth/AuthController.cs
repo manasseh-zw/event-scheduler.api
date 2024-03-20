@@ -22,7 +22,7 @@ public class AuthController : ControllerBase
     /// </summary>
     /// <param name="user">the user with a fullname(optional), email and password</param>
     /// <returns>an jwt token, and the registered userId</returns>
-    [HttpPost("/register")]
+    [HttpPost("register")]
     public async Task<IActionResult> Register([FromForm] RegisterRequestDto user)
     {
         if (user == null)
@@ -45,7 +45,7 @@ public class AuthController : ControllerBase
     /// </summary>
     /// <param name="user">the user with an email and password</param>
     /// <returns>jwt token and the logged-in userId</returns>
-    [HttpPost("/login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Register([FromForm] LoginRequestDto user)
     {
         if (user == null)
