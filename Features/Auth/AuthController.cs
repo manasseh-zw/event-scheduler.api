@@ -8,12 +8,20 @@ namespace event_scheduler.api.Features.Auth;
 [AllowAnonymous]
 public class AuthController : ControllerBase
 {
+    /// <summary>
+    /// user authectication endpoints
+    /// </summary>
     private readonly IAuthService _service;
     public AuthController(IAuthService service)
     {
         _service = service;
     }
 
+    /// <summary>
+    /// registers a user
+    /// </summary>
+    /// <param name="user">the user with a fullname(optional), email and password</param>
+    /// <returns>an jwt token, and the registered userId</returns>
     [HttpPost("/register")]
     public async Task<IActionResult> Register([FromForm] RegisterRequestDto user)
     {
@@ -32,6 +40,11 @@ public class AuthController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// logins a user in
+    /// </summary>
+    /// <param name="user">the user with an email and password</param>
+    /// <returns>jwt token and the logged-in userId</returns>
     [HttpPost("/login")]
     public async Task<IActionResult> Register([FromForm] LoginRequestDto user)
     {

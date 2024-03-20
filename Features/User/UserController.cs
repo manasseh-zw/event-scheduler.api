@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace event_scheduler.api.Features.User;
@@ -5,6 +6,7 @@ namespace event_scheduler.api.Features.User;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class UserController : ControllerBase
 {
 
@@ -19,6 +21,18 @@ public class UserController : ControllerBase
     {
         var response = await _service.GetUser(id);
 
+        if (!response.IsSuccess)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
+    [HttpGet("{id:guid}/events")]
+    public async Task<IActionResult> GetEvents(Guid id)
+    {
+        var response = await _service.GetEvents(id);
         if (!response.IsSuccess)
         {
             return BadRequest(response);
