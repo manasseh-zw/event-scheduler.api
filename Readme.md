@@ -22,6 +22,32 @@ The Event Scheduler API is a RESTful backend application for scheduling and mana
 
 Access the Swagger documentation [here](https://dg-event-scheduler-api.azurewebsites.net/swagger/index.html).
 
+### Screenshots
+
+## Register User
+
+`api/auth/register`
+
+![ASPNETCOREWebAPIGET](./.github/user-register.png)
+
+## User Login
+
+`/api/auth/login`
+
+![ASPNETCOREWebAPIGET](./.github/user-login.png)
+
+## POST Event
+
+`/api/events`
+
+![ASPNETCOREWebAPIGET](./.github/post-event.png)
+
+## Get User Events
+
+`/api/{userId}/events`
+
+![ASPNETCOREWebAPIGET](./.github/get-user-event.png)
+
 ## Folder Structure
 
 ```bash
@@ -51,7 +77,7 @@ Access the Swagger documentation [here](https://dg-event-scheduler-api.azurewebs
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/manasseh-zw/event-scheduler.api.git
 
 # Navigate to the project directory
 cd event-scheduler-api
