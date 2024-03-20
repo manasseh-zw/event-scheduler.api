@@ -9,7 +9,7 @@ namespace event_scheduler.api.Features.Auth;
 
 public interface IJwtTokenManager
 {
-    string GenerateToken(User user);
+    string GenerateToken(UserModel user);
 }
 public class JwtTokenManager : IJwtTokenManager
 {
@@ -25,7 +25,7 @@ public class JwtTokenManager : IJwtTokenManager
         _audience = configuration.GetSection("JwtConfig:Audience").Value;
     }
 
-    public string GenerateToken(User user)
+    public string GenerateToken(UserModel user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_secretKey);

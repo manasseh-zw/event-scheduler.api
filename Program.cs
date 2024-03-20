@@ -13,7 +13,7 @@ builder.Services.ConfigurePostgresContext(builder.Configuration);
 builder.Services.ConfigureAuthentication(builder.Configuration);
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
-builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
+builder.Services.AddSingleton<IPasswordHasher<UserModel>, PasswordHasher<UserModel>>();
 
 builder.Services.Scan(x =>
     x.FromAssemblies(typeof(Program).Assembly)

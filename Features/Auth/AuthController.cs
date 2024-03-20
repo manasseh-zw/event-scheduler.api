@@ -15,7 +15,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("/register")]
-    public async Task<IActionResult> Register([FromBody] RegisterRequestDto user)
+    public async Task<IActionResult> Register([FromForm] RegisterRequestDto user)
     {
         if (user == null)
         {
@@ -33,7 +33,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("/login")]
-    public async Task<IActionResult> Register([FromBody] LoginRequestDto user)
+    public async Task<IActionResult> Register([FromForm] LoginRequestDto user)
     {
         if (user == null)
         {

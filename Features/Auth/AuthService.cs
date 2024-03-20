@@ -17,12 +17,12 @@ public interface IAuthService
 public class AuthService : IAuthService
 {
     private readonly RepositoryContext _repository;
-    private readonly IPasswordHasher<User> _passwordHasher;
+    private readonly IPasswordHasher<UserModel> _passwordHasher;
     private readonly IJwtTokenManager _jwtTokenManager;
 
 
 
-    public AuthService(RepositoryContext repository, IPasswordHasher<User> passwordHasher, IJwtTokenManager jwtTokenManager)
+    public AuthService(RepositoryContext repository, IPasswordHasher<UserModel> passwordHasher, IJwtTokenManager jwtTokenManager)
     {
         _repository = repository;
         _passwordHasher = passwordHasher;
@@ -70,7 +70,7 @@ public class AuthService : IAuthService
             return new GlobalResponse<AuthResponseDto>(false, "register user failed", errors: validationResult.Errors.Select(e => e.ErrorMessage).ToList());
         }
 
-        var user = new User
+        var user = new UserModel
         {
             FullName = registerRequest.Fullname,
             Email = registerRequest.Email,

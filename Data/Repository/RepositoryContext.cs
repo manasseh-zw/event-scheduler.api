@@ -15,12 +15,12 @@ public class RepositoryContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<User>()
+        modelBuilder.Entity<UserModel>()
             .HasMany(u => u.Events)
             .WithOne(e => e.User)
             .HasForeignKey(e => e.UserId);
     }
 
-    public DbSet<User> Users { get; set; }
-    public DbSet<Event> Events { get; set; }
+    public DbSet<UserModel> Users { get; set; }
+    public DbSet<EventModel> Events { get; set; }
 }
