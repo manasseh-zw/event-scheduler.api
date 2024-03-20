@@ -24,29 +24,29 @@ Access the Swagger documentation [here](https://dg-event-scheduler-api.azurewebs
 
 ### Screenshots
 
-## Register User
+#### Register User
 
 `api/auth/register`
 
 ![ASPNETCOREWebAPIGET](./.github/user-register.png)
 
-## User Login
+#### User Login
 
 `/api/auth/login`
 
 ![ASPNETCOREWebAPIGET](./.github/user-login.png)
 
-## POST Event
+#### POST Event
 
 `/api/events`
 
 ![ASPNETCOREWebAPIGET](./.github/post-event.png)
 
-## Get User Events
+#### Get User Events
 
 `/api/{userId}/events`
 
-![ASPNETCOREWebAPIGET](./.github/get-user-event.png)
+![ASPNETCOREWebAPIGET](./.github/get-user-events.png)
 
 ## Folder Structure
 
