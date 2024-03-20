@@ -1,4 +1,4 @@
-# Event Scheduler API Project Structure
+# Event Scheduler API
 
 ## Project Overview
 
