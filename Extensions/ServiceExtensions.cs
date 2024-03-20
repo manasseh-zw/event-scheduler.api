@@ -9,7 +9,7 @@ namespace event_scheduler.api.Extensions;
 public static class ServiceExtensions
 {
     public static void ConfigurePostgresContext(this IServiceCollection services, IConfiguration configuration)
- => services.AddDbContext<RepositoryContext>(options => options.UseNpgsql(configuration.GetConnectionString("PostgresLocal")));
+ => services.AddDbContext<RepositoryContext>(options => options.UseNpgsql(configuration.GetConnectionString("PostgresCloud")));
 
     public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
     {

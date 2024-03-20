@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace event_scheduler.api.Features.Event;
 
 
+/// <summary>
+/// events endpoints
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
@@ -16,6 +19,12 @@ public class EventController : ControllerBase
         _service = service;
     }
 
+    /// <summary>
+    /// create user
+    /// </summary>
+    /// <param name="userId">the id of the user creating the event</param>
+    /// <param name="newEvent">the event to be created</param>
+    /// <returns>created event</returns>
     [HttpPost]
     public async Task<IActionResult> CreateEvent(Guid userId, [FromForm] CreateEventDto newEvent)
     {
@@ -33,6 +42,11 @@ public class EventController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// get an event
+    /// </summary>
+    /// <param name="id">event identifier</param>
+    /// <returns>event with specified id</returns>
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetEvent(Guid id)
     {
@@ -45,9 +59,14 @@ public class EventController : ControllerBase
         return Ok(response);
     }
 
-
+    /// <summary>
+    /// updates event
+    /// </summary>
+    /// <param name="id">event identifier</param>
+    /// <param name="updateEvent">object representing updates made to the event</param>
+    /// <returns>success message</returns>
     [HttpPatch]
-    public async Task<IActionResult> UpdateEvent(Guid id, [FromForm] UpdateEventDto updateEvent)
+    public async Task<IActionResult> UpdateEvent(Guid id, [FromBody] UpdateEventDto updateEvent)
     {
         if (updateEvent == null)
         {
@@ -63,6 +82,11 @@ public class EventController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// delete event
+    /// </summary>
+    /// <param name="id">event identifier</param>
+    /// <returns>success message</returns>
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteEvent(Guid id)
     {

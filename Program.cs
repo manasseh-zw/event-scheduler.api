@@ -1,3 +1,4 @@
+using System.Reflection;
 using event_scheduler.api.Data.Models;
 using event_scheduler.api.Extensions;
 using FluentValidation;
@@ -26,6 +27,9 @@ builder.Services.Scan(x =>
 
 builder.Services.AddSwaggerGen(opt =>
 {
+    opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
+        $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
+
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {

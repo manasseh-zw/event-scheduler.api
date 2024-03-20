@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace event_scheduler.api.Features.User;
 
 
+/// <summary>
+/// user endpoints
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
@@ -16,6 +19,11 @@ public class UserController : ControllerBase
         _service = service;
     }
 
+    /// <summary>
+    /// gets a user
+    /// </summary>
+    /// <param name="id">the user identifier</param>
+    /// <returns>user with specified id</returns>
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetUser(Guid id)
     {
@@ -29,6 +37,11 @@ public class UserController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// gets user events
+    /// </summary>
+    /// <param name="id">the user identifier</param>
+    /// <returns>List of events for user with specified id</returns>
     [HttpGet("{id:guid}/events")]
     public async Task<IActionResult> GetEvents(Guid id)
     {
