@@ -24,7 +24,7 @@ Access the Swagger documentation [here](https://dg-event-scheduler-api.azurewebs
 
 ## Folder Structure
 
-````plaintext
+```bash
 - .gitignore
 - appsettings.Development.json
 - appsettings.json
@@ -45,7 +45,7 @@ Access the Swagger documentation [here](https://dg-event-scheduler-api.azurewebs
   - GlobalResponse.cs
   - Patcher.cs
 - Program.cs
-
+```
 
 ## Setup Instructions
 
@@ -63,4 +63,4 @@ dotnet ef database update
 
 # Run the application
 dotnet run
-````
+```
